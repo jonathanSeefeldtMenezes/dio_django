@@ -1,0 +1,11 @@
+# Ativar a virtual envs #
+1. Selecionar o diretório que foi criado o .virtualenvs;
+2. Ativar a virtualenvs pelo comando: /Scripts/.activate
+
+# Criar Migrate
+1. python manage.py makemigrations NOME_PASTA_MODELS
+
+
+# Executar Migrates (DataBase)
+1. python manage.py sqlmigrate
+2. python manage.py sqlmigrate XXX.py
