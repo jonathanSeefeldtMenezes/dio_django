@@ -23,5 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('evento/<titulo_evento>', views.obter_local_evento),
     path('agenda/', views.listar_eventos),
-    path('', RedirectView.as_view(url='/agenda/'))
+    path('', RedirectView.as_view(url='/agenda/')),
+    path('login/', views.logar_usuario),
+    path('login/submit', views.logar_submit),
+    path('logout/', views.deslogar_usuario)
 ]
