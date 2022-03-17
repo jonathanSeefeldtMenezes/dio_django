@@ -34,11 +34,28 @@ def logar_submit(request):
             login(request, usuario)
             return redirect('/')
         else:
-            messages.error(request,'Usuário/Senha incorretos.')
+            messages.error(request, 'Usuário/Senha incorretos.')
 
     return redirect('/')
 
 
 def deslogar_usuario(request):
     logout(request)
+    return redirect('/')
+
+@login_required(login_url='/login/')
+def agenda_add(request):
+    return render(request, 'agenda_add.html')
+
+
+def agenda_add_submit(request):
+    if request.POST:
+        Evento.objects.create(
+            titulo=request.POST.get('titulo'),
+            descricao=request.POST.get('descricao'),
+            local=request.POST.get('local'),
+            data_evento=request.POST.get('data-evento'),
+            usuario=request.user
+        )
+
     return redirect('/')
