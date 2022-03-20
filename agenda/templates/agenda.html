@@ -6,11 +6,13 @@
     <table class="table">
         <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Titulo</th>
+                <th scope="col">#</th>
+                <th scope="col">Titulo</th>
                 <th scope="col">Local</th>
-              <th scope="col">Data do Evento</th>
-              <th scope="col">Usuario</th>
+                <th scope="col">Data do Evento</th>
+                <th scope="col">Usuario</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -21,10 +23,21 @@
                     <td>{{ evento.local }}</td>
                     <td>{{ evento.get_data_evento }}</td>
                     <td>{{ evento.usuario }}</td>
+                    <td>
+                        <a href="evento/excluir/{{ evento.id }}"
+                           data-confirm-text="Deseja realmente excluir?">
+                            <i class="material-icons">delete</i>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="evento/?id={{ evento.id }}">
+                            <i class="material-icons">edit</i>
+                        </a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
 
-    <a class="btn btn-primary" href="/agenda/add/" role="button">Novo</a>
+    <a class="btn btn-primary" href="evento/" role="button">Novo</a>
 {% endblock %}

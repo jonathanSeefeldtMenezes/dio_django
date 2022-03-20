@@ -1,0 +1,52 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+
+    <h2>Evento</h2>
+
+    <form class="mx-2" action="submit" method="post">{% csrf_token %}
+        <div style="display: none">
+            <input type="number"
+                   class="form-control"
+                   name="evento_id"
+                   value="{{ evento.id }}">
+        </div>
+        <div class="mb-3">
+            <label for="titulo" class="form-label">Título</label>
+            <input type="text"
+                   class="form-control"
+                   id="titulo"
+                   name="titulo"
+                   value="{{ evento.titulo }}">
+        </div>
+        <div class="mb-3">
+            <label for="descricao" class="form-label">Descrição</label>
+            <textarea class="form-control"
+                      id="descricao"
+                      name="descricao">{{ evento.descricao }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="local" class="form-label">Local</label>
+            <input type="text"
+                   class="form-control"
+                   id="local"
+                   name="local"
+                   value="{{ evento.local }}">
+        </div>
+        <div class="mb-3">
+            <label for="data-evento" class="form-label">Data do Evento</label>
+            <input type="datetime-local"
+                   class="form-control"
+                   id="data-evento"
+                   name="data-evento"
+                   value="{{ evento.get_data_evento_input }}">
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-success">Adicionar</button>
+            <a href="/">
+                <button type="button" class="btn btn-danger">Cancelar</button>
+            </a>
+        </div>
+    </form>
+
+{% endblock %}
