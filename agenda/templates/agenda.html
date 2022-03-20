@@ -17,7 +17,9 @@
         </thead>
         <tbody>
             {% for evento in eventos %}
-                <tr>
+                <tr style={% if evento.get_atrasado %}
+                            "color:red"
+                           {% endif %}>
                     <th scope="row">{{ evento.id }}</th>
                     <td>{{ evento.titulo }}</td>
                     <td>{{ evento.local }}</td>
